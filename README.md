@@ -155,7 +155,7 @@ interval_update_status = "55m0s"
 listen_on = "0.0.0.0:12345"
 
 # Name of the node
-moniker = "Nome del vostro nodo che verrà visualizzato"
+moniker = "your_node_name"
 
 # Per Gigabyte price to charge against the provided bandwidth
 price = "1000000udvpn"
@@ -218,19 +218,20 @@ sudo ufw allow 54321/udp
 Run the node (add your tcp and udp ports in the command)
 ```bash
 docker run -d \
---name sentinel-dvpn-node \
---restart unless-stopped \
---volume ${HOME}/.sentinelnode:/root/.sentinelnode \
---volume /lib/modules:/lib/modules \
---cap-drop ALL \
---cap-add NET_ADMIN \
---cap-add NET_BIND_SERVICE \
---cap-add NET_RAW \
---cap-add SYS_MODULE \
---sysctl net.ipv4.ip_forward=1 \
---sysctl net.ipv6.conf.all.disable_ipv6=0 \
---sysctl net.ipv6.conf.all.forwarding=1 \
---sysctl net.ipv6.conf.default.forwarding=1 \
---publish 12345:12345/tcp \
---publish 54321:54321/udp \
+    --name sentinel-dvpn-node \
+    --restart unless-stopped \
+    --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
+    --volume /lib/modules:/lib/modules \
+    --cap-drop ALL \
+    --cap-add NET_ADMIN \
+    --cap-add NET_BIND_SERVICE \
+    --cap-add NET_RAW \
+    --cap-add SYS_MODULE \
+    --sysctl net.ipv4.ip_forward=1 \
+    --sysctl net.ipv6.conf.all.disable_ipv6=0 \
+    --sysctl net.ipv6.conf.all.forwarding=1 \
+    --sysctl net.ipv6.conf.default.forwarding=1 \
+    --publish 12345:12345/tcp \
+    --publish 54321:54321/udp \
+    sentinel-dvpn-node process start
 ```
