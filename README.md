@@ -23,7 +23,7 @@ Allow Port 22
 ```bash
 sudo ufw allow 22
 ```
-Enable Port 22
+Enable Firewall
 ```bash
 sudo ufw enable
 ```
