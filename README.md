@@ -169,3 +169,68 @@ remote_url = "https://ip_node:tcp_port"
 [qos]# Limit max number of concurrent peers
 max_peers = 250
 ```
+Initialize the WireGuard configuration
+```bash
+docker run --rm \
+    --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
+    sentinel-dvpn-node process wireguard config init
+```
+Edit the configuration file ${HOME}/.sentinelnode/wireguard.toml if required
+```bash
+# Name of the network interface
+interface = "wg0"
+
+# Port number to accept the incoming connections
+listen_port = 54321
+
+# Server private key
+private_key = "WEkdSO6cax3Sbo08mwmMyd2X617usVeVDTK/hdkfOmI="
+```
+Add an account key (the one in config.toml file)
+```bash
+docker run --rm \
+    --interactive \
+    --tty \
+    --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
+    sentinel-dvpn-node process keys add
+```
+It will be shown you an operator address (sent1), a node address (sentnode1) and a mnemonic which you will write down and store in a safe place
+Also, send some DVPN token to the operator address before starting it (50 DVPN are enough)
+
+Move created TLS keys
+```bash
+mv ${HOME}/tls.crt ${HOME}/.sentinelnode/tls.crt && \
+mv ${HOME}/tls.key ${HOME}/.sentinelnode/tls.key
+
+sudo chown root:root ${HOME}/.sentinelnode/tls.crt && \
+sudo chown root:root ${HOME}/.sentinelnode/tls.key
+```
+
+Enable TCP port on Firewall (check file config.toml)
+```bash
+sudo ufw allow 12345/tcp
+```
+
+Enable UDP port on Firewall (check file wireguard.toml)
+```bash
+sudo ufw allow 54321/udp
+```
+Run the node (add your tcp and udp ports in the command)
+```bash
+docker run -d \
+--name sentinel-dvpn-node \
+--restart unless-stopped \
+--volume ${HOME}/.sentinelnode:/root/.sentinelnode \
+--volume /lib/modules:/lib/modules \
+--cap-drop ALL \
+--cap-add NET_ADMIN \
+--cap-add NET_BIND_SERVICE \
+--cap-add NET_RAW \
+--cap-add SYS_MODULE \
+--sysctl net.ipv4.ip_forward=1 \
+--sysctl net.ipv6.conf.all.disable_ipv6=0 \
+--sysctl net.ipv6.conf.all.forwarding=1 \
+--sysctl net.ipv6.conf.default.forwarding=1 \
+--publish 12345:12345/tcp \
+--publish 54321:54321/udp \
+```
