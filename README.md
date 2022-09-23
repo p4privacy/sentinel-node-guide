@@ -106,7 +106,12 @@ docker run --rm \
     --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
     sentinel-dvpn-node process config init
 ```
-Edit the configuration file ${HOME}/.sentinelnode/config.toml if required
+Open the configuration file config.toml
+```bash
+nano /root/.sentinelnode/config.toml
+```
+
+Edit the fields (add the keyring name, take note of the tcp port and add remote_url with ip_node and tcp_port)
 ```bash
 [chain]
 # Gas adjustment factor
@@ -175,7 +180,11 @@ docker run --rm \
     --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
     sentinel-dvpn-node process wireguard config init
 ```
-Edit the configuration file ${HOME}/.sentinelnode/wireguard.toml if required
+Open the file wireguard.toml
+```bash
+nano /root/.sentinelnode/wireguard.toml
+```
+Take note of the UDP port
 ```bash
 # Name of the network interface
 interface = "wg0"
