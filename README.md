@@ -215,7 +215,7 @@ Enable UDP port on Firewall (check file wireguard.toml)
 ```bash
 sudo ufw allow 54321/udp
 ```
-Run the node (add your tcp and udp ports in the command)
+Run the node (add your tcp and udp ports chosen)
 ```bash
 docker run -d \
     --name sentinel-dvpn-node \
