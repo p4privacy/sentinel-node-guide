@@ -205,8 +205,8 @@ docker run --rm \
     --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
     sentinel-dvpn-node process keys add
 ```
-It will be shown you an operator address (sent1), a node address (sentnode1) and a mnemonic which you will write down and store in a safe place
-Also, send some DVPN token to the operator address before starting it (50 DVPN are enough)
+It will be shown you an operator address (sent1), a node address (sentnode1) and a mnemonic which you will write down and store in a safe place.
+Also, **send some DVPN token to the operator address** before starting it (50 DVPN are enough)
 
 Move created TLS keys
 ```bash
