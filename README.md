@@ -4,4 +4,40 @@ How to install a Sentinel node for newbies
 
 ## Menu
 
-* Prova
+* [Install Docker](#install-docker)
+
+## Install Docker
+
+Update the list of available software packages
+
+```bash
+sudo apt-get update
+```
+Install cURL package
+
+```bash
+sudo apt-get install --yes curl
+```
+Get the official Docker installation script
+
+```bash
+curl -fsSL get.docker.com -o ${HOME}/get-docker.sh
+```
+
+Install Docker
+
+```bash
+sudo sh ${HOME}/get-docker.sh
+```
+
+Add user to Docker group
+
+```bash
+sudo usermod -aG docker $(whoami)
+```
+
+Reboot the machine
+
+```bash
+sudo reboot
+```
