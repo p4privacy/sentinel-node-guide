@@ -1,6 +1,8 @@
 # <img src="https://user-images.githubusercontent.com/114076168/191721379-88f4b6ca-6463-4458-aab4-73d29d1bc7a0.jpg" width="35" height="35"> Sentinel Guide: How to Install a Node
 
-How to install a Sentinel node for newbies
+How to install a Sentinel node for newbies.
+You can install a Sentinel node either at home (a Raspberry Pi 4 is fine) or on a VPS
+You need to run Linux.
 
 ## Menu
 
