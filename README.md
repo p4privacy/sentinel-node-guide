@@ -120,7 +120,7 @@ openssl req -new \
 
 During the procedure, when you are asked to fill some fields as country or e-mail, you can leave them blank.
 
-Initialize the application configuration
+#### Initialize the application configuration
 ```bash
 docker run --rm \
     --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
