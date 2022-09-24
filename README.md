@@ -122,7 +122,7 @@ gas_adjustment = 1.05
 # Gas limit to set per transaction
 gas = 200000
 
-# Gas prices to determine the transaction fee
+# Gas prices to determine the transaction fee <red>PROVA</red>
 gas_prices = "0.1udvpn"
 
 # The network chain ID
