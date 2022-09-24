@@ -13,6 +13,7 @@ You need to have Linux operating system.
 * [Install Docker](#install-docker)
 * [Preparing the Docker Image](#preparing-the-docker-image)
 * [Node Configuration](#node-configuration)
+* [Node Management](#node-management)
 
 ## Preliminary Operations
 
@@ -303,3 +304,32 @@ docker run -d \
     sentinel-dvpn-node process start
 ```
 Remember that autorestart function is enabled, this will prevent you to manually restart the node in case of problems.
+
+## Node Management
+
+This a list of commands to manage your node
+
+Container list/details
+```bash
+docker ps -a
+```
+
+Node logs (you can change the number of logs with another value)
+```bash
+docker logs -f -n 100 sentinel-dvpn-node
+```
+
+Stop a node
+```bash
+docker stop sentinel-dvpn-node 
+```
+
+Start a node
+```bash
+docker start sentinel-dvpn-node 
+```
+
+Remove a node
+```bash
+docker 
+```
