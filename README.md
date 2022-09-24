@@ -227,7 +227,7 @@ listen_port = 54321
 # Server private key
 private_key = "WEkdSO6cax3Sbo08mwmMyd2X617usVeVDTK/hdkfOmI="
 ```
-Add an account key (the one in config.toml file)
+#### Add an account key (the one in config.toml file)
 ```bash
 docker run --rm \
     --interactive \
