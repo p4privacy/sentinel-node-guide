@@ -135,6 +135,7 @@ rpc_address = "https://rpc.sentinel.co:443"
 -https://rpc.sentinel1.badgerbite.xyz:443
 -https://rpc-sentinel.itastakers.com:443
 -https://rpc.sentinel.smartnodes.one:443
+@@prova
 
 # Calculate the transaction fee by simulating it
 simulate_and_execute = true
