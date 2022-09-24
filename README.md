@@ -114,7 +114,7 @@ nano /root/.sentinelnode/config.toml
 ```
 
 Edit the fields (add the keyring name, take note of the tcp port and add remote_url with ip_node and tcp_port)
-```bash
+```
 [chain]
 # Gas adjustment factor
 gas_adjustment = 1.05
@@ -187,7 +187,7 @@ Open the file wireguard.toml
 nano /root/.sentinelnode/wireguard.toml
 ```
 Take note of the UDP port
-```bash
+```
 # Name of the network interface
 interface = "wg0"
 
