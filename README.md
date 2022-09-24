@@ -7,16 +7,32 @@ You need to have Linux.
 ## Menu
 
 * [Preliminary Operations](#preliminary-operations)
+    - [Generate SSH Keygen](#generate-ssh-keygen)
+    - [Update the list of available software packages](#update-the-list-of-available-software-packages)
+    - [Setting up Firewall](#setting-up-firewall)
 * [Install Docker](#install-docker)
 * [Preparing the Docker Image](#preparing-the-docker-image)
 * [Node Configuration](#node-configuration)
 
 ## Preliminary Operations
 
-Update the list of available software packages
+#### Generate SSH Keygen
+
+```bash
+ssh-keygen
+```
+Then navingate into the ssh folder and copy the content of the generated public key
+```bash
+cd .ssh/
+cat id_ed25519.pub
+```
+
+#### Update the list of available software packages
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
+#### Setting up Firewall
+
 Install Firewall
 ```bash
 sudo apt-get install ufw
