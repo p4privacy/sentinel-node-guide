@@ -171,7 +171,7 @@ backend = "test"
 
 # Name of the key with which to sign
 from = "key_name"
-@@ replace "key_name" with your desired name @@
+@@ replace "key_name" with your desired name and remember, this value cannot be empty! @@
 
 [node]
 # Time interval between each set_sessions operation
@@ -234,6 +234,14 @@ docker run --rm \
     --tty \
     --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
     sentinel-dvpn-node process keys add
+```
+if you already have a mnemonic and simply want to recover your account, type this
+```bash
+docker run --rm \
+    --interactive \
+    --tty \
+    --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
+    sentinel-dvpn-node process keys add --recover
 ```
 It will be shown you an operator address (sent1), a node address (sentnode1) and a mnemonic which you will write down and store in a safe place.
 Also, **send some DVPN tokens to the operator address** before starting it (50 DVPNs are enough)
