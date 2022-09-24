@@ -307,7 +307,7 @@ Remember that autorestart function is enabled, this will prevent you to manually
 
 ## Node Management
 
-This a list of commands to manage your node
+#### This a list of commands to manage your node
 
 Container list/details
 ```bash
@@ -324,12 +324,12 @@ Stop a node
 docker stop sentinel-dvpn-node 
 ```
 
-Start a node
+Start a stopped node
 ```bash
 docker start sentinel-dvpn-node 
 ```
 
 Remove a node
 ```bash
-docker 
+docker rm -f sentinel-dvpn-node
 ```
