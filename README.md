@@ -22,27 +22,32 @@ On your computer open a terminal and generate a new ssh keygen if you do not alr
 ```bash
 ssh-keygen
 ```
+
 Then navigate into the ssh folder and copy the content of the generated public key
 ```bash
 cd .ssh/
 cat id_ed25519.pub
 ```
+
 Then go on your server or VPS and add the SSH key to it
 
 ### Update the list of available software packages
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
+
 ### Setting up Firewall
 
 Install Firewall
 ```bash
 sudo apt-get install ufw
 ```
+
 Allow Port 22
 ```bash
 sudo ufw allow 22
 ```
+
 Enable Firewall
 ```sh
 sudo ufw enable
@@ -54,6 +59,7 @@ Install cURL package
 ```bash
 sudo apt-get install --yes curl
 ```
+
 Get the official Docker installation script
 ```bash
 curl -fsSL get.docker.com -o ${HOME}/get-docker.sh
@@ -64,14 +70,14 @@ Install Docker
 sudo sh ${HOME}/get-docker.sh
 ```
 
+Enable Docker
+```bash
+sudo systemctl enable --now docker
+```
+
 Add user to Docker group
 ```bash
 sudo usermod -aG docker $(whoami)
-```
-
-Reboot the machine
-```bash
-sudo reboot
 ```
 
 ## Preparing the Docker Image
@@ -86,12 +92,14 @@ Clone the GitHub repository
 git clone https://github.com/sentinel-official/dvpn-node.git \
     ${HOME}/dvpn-node/
 ```
+
 Checkout to the latest tag
 ```bash
 cd ~/dvpn-node && \
 git fetch && \
 git checkout v0.3.2
 ```
+
 Build the image
 ```bash
 docker build --file Dockerfile \
@@ -100,10 +108,12 @@ docker build --file Dockerfile \
     --no-cache \
     --compress .
 ```
+
 Create a self-signed TLS certificate
 ```bash
 sudo apt-get install --yes openssl
 ```
+
 Create a certificate
 ```bash
 openssl req -new \
@@ -126,6 +136,7 @@ docker run --rm \
     --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
     sentinel-dvpn-node process config init
 ```
+
 Open the configuration file config.toml
 ```bash
 nano /root/.sentinelnode/config.toml
@@ -205,16 +216,19 @@ remote_url = "https://ip_node:tcp_port"
 [qos]# Limit max number of concurrent peers
 max_peers = 250
 ```
+
 Initialize the WireGuard configuration
 ```bash
 docker run --rm \
     --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
     sentinel-dvpn-node process wireguard config init
 ```
+
 Open the file wireguard.toml
 ```bash
 nano /root/.sentinelnode/wireguard.toml
 ```
+
 Take note of the UDP port
 ```diff
 # Name of the network interface
@@ -227,6 +241,7 @@ listen_port = 54321
 # Server private key
 private_key = "WEkdSO6cax3Sbo08mwmMyd2X617usVeVDTK/hdkfOmI="
 ```
+
 Add an account key (the one in config.toml file)
 ```bash
 docker run --rm \
@@ -235,6 +250,7 @@ docker run --rm \
     --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
     sentinel-dvpn-node process keys add
 ```
+
 if you already have a mnemonic and simply want to recover your account, type this
 ```bash
 docker run --rm \
@@ -243,6 +259,7 @@ docker run --rm \
     --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
     sentinel-dvpn-node process keys add --recover
 ```
+
 It will be shown you an operator address (sent1), a node address (sentnode1) and a mnemonic which you will write down and store in a safe place.
 Also, **send some DVPN tokens to the operator address** before starting it (50 DVPNs are enough)
 
@@ -264,6 +281,7 @@ Enable UDP port on Firewall (check file wireguard.toml)
 ```bash
 sudo ufw allow 54321/udp
 ```
+
 Run the node (add your tcp and udp chosen ports).
 ```bash
 docker run -d \
