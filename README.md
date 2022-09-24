@@ -113,7 +113,7 @@ Open the configuration file config.toml
 nano /root/.sentinelnode/config.toml
 ```
 
-Edit the fields (add the keyring name, take note of the tcp port and add remote_url with ip_node and tcp_port)
+Edit the required fields (see the pink comments)
 ```diff
 [chain]
 # Gas adjustment factor
@@ -130,11 +130,11 @@ id = "sentinelhub-2"
 
 # Tendermint RPC interface for the chain
 rpc_address = "https://rpc.sentinel.co:443"
-@@ this is default RPC di default, find below alternative ones
--https://rpc.mathnodes.com:443
--https://rpc.sentinel1.badgerbite.xyz:443
--https://rpc-sentinel.itastakers.com:443
--https://rpc.sentinel.smartnodes.one:443 @@
+@@ this is default RPC di default, find below alternative ones @@
+@@ https://rpc.mathnodes.com:443 @@
+@@ https://rpc.sentinel1.badgerbite.xyz:443 @@
+@@ https://rpc-sentinel.itastakers.com:443 @@
+@@ https://rpc.sentinel.smartnodes.one:443 @@
 
 # Calculate the transaction fee by simulating it
 simulate_and_execute = true
@@ -149,11 +149,11 @@ peers = 8
 [keyring]
 # Underlying storage mechanism for keys
 backend = "test"
--write the word "test" which will allow you to run the node with autorestart function. Alternatively use the word "file"
+@@ write the word "test" which will allow you to run the node with autorestart function. Alternatively use the word "file" @@
 
 # Name of the key with which to sign
 from = "key_name"
--replace "key_name" with your desired name
+@@ replace "key_name" with your desired name @@
 
 [node]
 # Time interval between each set_sessions operation
@@ -167,22 +167,22 @@ interval_update_status = "55m0s"
 
 # API listen-address
 listen_on = "0.0.0.0:12345"
--this is the TCP port, you can change it and write it down as you need it later
+@@ this is the TCP port, you can change it and write it down as you need it later @@
 
 # Name of the node
 moniker = "your_node_name"
--replace "your_node_name" with your desired name
+@@ replace "your_node_name" with your desired name @@
 
 # Per Gigabyte price to charge against the provided bandwidth
 price = "1000000udvpn"
--this is the ideal price for 1GB and it is expressed in udvpn
+@@ this is the ideal price for 1GB and it is expressed in udvpn @@
 
 # Address of the provider the node wants to operate under
 provider = ""
 
 # Public URL of the node
 remote_url = "https://ip_node:tcp_port"
--example: https://123.456.78.90:12345
+@@ example: https://123.456.78.90:12345 @@
 
 [qos]# Limit max number of concurrent peers
 max_peers = 250
@@ -204,7 +204,7 @@ interface = "wg0"
 
 # Port number to accept the incoming connections
 listen_port = 54321
--this is the UDP port, you can change it and write it down as you need it later
+@@ this is the UDP port, you can change it and write it down as you need it later @@
 
 # Server private key
 private_key = "WEkdSO6cax3Sbo08mwmMyd2X617usVeVDTK/hdkfOmI="
