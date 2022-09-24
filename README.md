@@ -16,7 +16,7 @@ You need to have Linux.
 
 ## Preliminary Operations
 
-#### Generate SSH Keygen
+### Generate SSH Keygen
 
 ```bash
 ssh-keygen
@@ -27,11 +27,11 @@ cd .ssh/
 cat id_ed25519.pub
 ```
 
-#### Update the list of available software packages
+### Update the list of available software packages
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
-#### Setting up Firewall
+### Setting up Firewall
 
 Install Firewall
 ```bash
