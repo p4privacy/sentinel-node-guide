@@ -114,7 +114,7 @@ nano /root/.sentinelnode/config.toml
 ```
 
 Edit the fields (add the keyring name, take note of the tcp port and add remote_url with ip_node and tcp_port)
-```
+```diff
 [chain]
 # Gas adjustment factor
 gas_adjustment = 1.05
@@ -122,8 +122,9 @@ gas_adjustment = 1.05
 # Gas limit to set per transaction
 gas = 200000
 
-# Gas prices to determine the transaction fee
+# Gas prices to determine the transaction fee -prova
 gas_prices = "0.1udvpn"
+-prova
 
 # The network chain ID
 id = "sentinelhub-2"
