@@ -2,7 +2,7 @@
 
 How to install a Sentinel node for newbies.
 You can install a Sentinel node either at home (a Raspberry Pi 4 is fine) or on a VPS.
-You need to have Linux.
+You need to have Linux operating system.
 
 ## Menu
 
@@ -18,14 +18,16 @@ You need to have Linux.
 
 ### Generate SSH Keygen
 
+On your computer open a terminal and generate a new ssh keygen if you do not already have one
 ```bash
 ssh-keygen
 ```
-Then navingate into the ssh folder and copy the content of the generated public key
+Then navigate into the ssh folder and copy the content of the generated public key
 ```bash
 cd .ssh/
 cat id_ed25519.pub
 ```
+Then go on your server or VPS and add the SSH key to it
 
 ### Update the list of available software packages
 ```bash
