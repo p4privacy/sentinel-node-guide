@@ -126,12 +126,12 @@ docker run --rm \
     --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
     sentinel-dvpn-node process config init
 ```
-Open the configuration file config.toml
+#### Open the configuration file config.toml
 ```bash
 nano /root/.sentinelnode/config.toml
 ```
 
-Edit the required fields (see the pink comments)
+#### Edit the required fields (see the pink comments)
 ```diff
 [chain]
 # Gas adjustment factor
@@ -205,17 +205,17 @@ remote_url = "https://ip_node:tcp_port"
 [qos]# Limit max number of concurrent peers
 max_peers = 250
 ```
-Initialize the WireGuard configuration
+#### Initialize the WireGuard configuration
 ```bash
 docker run --rm \
     --volume ${HOME}/.sentinelnode:/root/.sentinelnode \
     sentinel-dvpn-node process wireguard config init
 ```
-Open the file wireguard.toml
+#### Open the file wireguard.toml
 ```bash
 nano /root/.sentinelnode/wireguard.toml
 ```
-Take note of the UDP port
+#### Take note of the UDP port
 ```diff
 # Name of the network interface
 interface = "wg0"
@@ -238,7 +238,7 @@ docker run --rm \
 It will be shown you an operator address (sent1), a node address (sentnode1) and a mnemonic which you will write down and store in a safe place.
 Also, **send some DVPN tokens to the operator address** before starting it (50 DVPNs are enough)
 
-Move created TLS keys
+#### Move created TLS keys
 ```bash
 mv ${HOME}/tls.crt ${HOME}/.sentinelnode/tls.crt && \
 mv ${HOME}/tls.key ${HOME}/.sentinelnode/tls.key
@@ -247,16 +247,16 @@ sudo chown root:root ${HOME}/.sentinelnode/tls.crt && \
 sudo chown root:root ${HOME}/.sentinelnode/tls.key
 ```
 
-Enable TCP port on Firewall (check file config.toml)
+#### Enable TCP port on Firewall (check file config.toml)
 ```bash
 sudo ufw allow 12345/tcp
 ```
 
-Enable UDP port on Firewall (check file wireguard.toml)
+#### Enable UDP port on Firewall (check file wireguard.toml)
 ```bash
 sudo ufw allow 54321/udp
 ```
-Run the node (add your tcp and udp ports chosen)
+#### Run the node (add your tcp and udp ports chosen)
 ```bash
 docker run -d \
     --name sentinel-dvpn-node \
