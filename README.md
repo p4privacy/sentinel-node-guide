@@ -130,12 +130,11 @@ id = "sentinelhub-2"
 
 # Tendermint RPC interface for the chain
 rpc_address = "https://rpc.sentinel.co:443"
--this is default RPC di default, find below alternative ones
+@@ this is default RPC di default, find below alternative ones
 -https://rpc.mathnodes.com:443
 -https://rpc.sentinel1.badgerbite.xyz:443
 -https://rpc-sentinel.itastakers.com:443
--https://rpc.sentinel.smartnodes.one:443
-@@ prova @@
+-https://rpc.sentinel.smartnodes.one:443 @@
 
 # Calculate the transaction fee by simulating it
 simulate_and_execute = true
