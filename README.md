@@ -140,7 +140,7 @@ docker run --rm \
 
 Open the configuration file config.toml
 ```bash
-nano /root/.sentinelnode/config.toml
+nano /home/$(whoami)/.sentinelnode/config.toml
 ```
 
 Edit the required fields (see the pink comments)
@@ -227,7 +227,7 @@ docker run --rm \
 
 Open the file wireguard.toml
 ```bash
-nano /root/.sentinelnode/wireguard.toml
+nano /home/$(whoami)/.sentinelnode/wireguard.toml
 ```
 
 Take note of the UDP port
